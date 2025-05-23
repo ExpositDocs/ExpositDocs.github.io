@@ -62,7 +62,7 @@ Let us help you develop packaing that's as great as your product.
                         <input type="text" name="message" />
                         <button id="my-form-button-2" class="btn btn-primary btn-lg px-4 gap-3" >Submit</button>
                         <p id="my-form-status-2"></p>
-                        <div id="form-2-spinner" class="spinner-border" role="status">
+                        <div id="form-2-spinner" style="display:none;" class="spinner-border" role="status">
                             <span class="visually-hidden">Sending...</span>
                         </div>
                     </form>
@@ -107,7 +107,7 @@ Let us help you develop packaing that's as great as your product.
             var form = document.getElementById("my-form-2");
                 async function handleSubmit(event) {
                     event.preventDefault();
-                    document.getElementById("form-2-spinner").setAttribute("display", "inline-block");
+                    document.getElementById("form-2-spinner").style.display = 'inline-block';
                     var status = document.getElementById("my-form-status-2");
                     var data = new FormData(event.target);
                     fetch(event.target.action, {
@@ -117,7 +117,7 @@ Let us help you develop packaing that's as great as your product.
                             'Accept': 'application/json'
                         }
                     }).then(response => {
-                        document.getElementById("form-2-spinner").setAttribute("display", "none");
+                        document.getElementById("form-2-spinner").style.display = 'none';
                         if (response.ok) {
                             status.innerHTML = "Thanks for your submission!";
                             form.reset()
@@ -131,7 +131,7 @@ Let us help you develop packaing that's as great as your product.
                             })
                         }
                     }).catch(error => {
-                        document.getElementById("form-2-spinner").setAttribute("display", "none");
+                        document.getElementById("form-2-spinner").style.display = 'none';
                         status.innerHTML = "Oops! There was a problem submitting your form"
                     });
                 }
