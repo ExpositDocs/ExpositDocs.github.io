@@ -46,22 +46,22 @@ Let us help you develop packaing that's as great as your product.
                         <!-- your other form fields go here -->
                         <button type="submit">Send</button>
                     </form>
-                    <form id="my-form" action="https://formspree.io/f/xvgannrg" method="POST">
+                    <form id="my-form-1" action="https://formspree.io/f/xvgannrg" method="POST">
                         <label>Email:</label>
                         <input type="email" name="email" />
                         <label>Message:</label>
                         <input type="text" name="message" />
-                        <button id="my-form-button">Submit</button>
-                        <p id="my-form-status"></p>
+                        <button id="my-form-button-1">Submit</button>
+                        <p id="my-form-status-1"></p>
                       </form>
 
-                    <form id="my-form" action="https://formspree.io/f/xvgannrg" method="POST">
+                    <form id="my-form-2" action="https://formspree.io/f/xvgannrg" method="POST">
                         <label>Email:</label>
                         <input type="email" name="email" />
                         <label>Message:</label>
                         <input type="text" name="message" />
-                        <button class="btn btn-primary btn-lg px-4 gap-3" id="my-form-button">Submit</button>
-                        <p id="my-form-status"></p>
+                        <button id="my-form-button-2" class="btn btn-primary btn-lg px-4 gap-3" >Submit</button>
+                        <p id="my-form-status-2"></p>
                     </form>
                   </div>
                 </div>
@@ -70,10 +70,41 @@ Let us help you develop packaing that's as great as your product.
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
     <script>
-            var form = document.getElementById("my-form");
+            var form = document.getElementById("my-form-1");
                 async function handleSubmit(event) {
                     event.preventDefault();
-                    var status = document.getElementById("my-form-status");
+                    var status = document.getElementById("my-form-status-1");
+                    var data = new FormData(event.target);
+                    fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            status.innerHTML = "Thanks for your submission!";
+                            form.reset()
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                                } else {
+                                    status.innerHTML = "Oops! There was a problem submitting your form"
+                                }
+                            })
+                        }
+                    }).catch(error => {
+                        status.innerHTML = "Oops! There was a problem submitting your form"
+                    });
+                }
+                form.addEventListener("submit", handleSubmit)
+    </script>
+    <script>
+            var form = document.getElementById("my-form-2");
+                async function handleSubmit(event) {
+                    event.preventDefault();
+                    var status = document.getElementById("my-form-status-2");
                     var data = new FormData(event.target);
                     fetch(event.target.action, {
                         method: form.method,
