@@ -33,14 +33,28 @@ Let us help you develop packaing that's as great as your product.
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
-                    <form id="my-form" action="https://formspree.io/f/xvgannrg" method="POST">
+                    
+                    <form action="https://formspree.io/f/xvgannrg" method="POST">
+                        <label>
+                            Your email:
+                            <input type="email" name="email">
+                        </label>
+                        <label>
+                            Your message:
+                            <textarea name="message"></textarea>
+                        </label>
+                        <!-- your other form fields go here -->
+                        <button type="submit">Send</button>
+                    </form>
+                    
+                    <!-- <form id="my-form" action="https://formspree.io/f/xvgannrg" method="POST">
                         <label>Email:</label>
                         <input type="email" name="email" />
                         <label>Message:</label>
                         <input type="text" name="message" />
                         <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="my-form-button">Submit</button>
                         <p id="my-form-status"></p>
-                    </form>
+                    </form> -->
                   </div>
                 </div>
               </div>
