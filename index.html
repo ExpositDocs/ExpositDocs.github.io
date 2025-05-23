@@ -1,1 +1,84 @@
-hello world
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExpositDocs</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+
+Many product companies struggle with underperforming documentation and knowledge content. They know AI is changing the game — but they don’t know where to start.
+
+
+Packaging Is Part of the Product - Great Packaging Explains, Converts, and Delights.
+Let us help you develop packaing that's as great as your product.
+
+
+
+
+<body>
+        <div class="px-4 py-5 my-5 text-center">
+                <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                <h1 class="display-5 fw-bold">Centered hero</h1>
+                <div class="col-lg-6 mx-auto">
+                  <p class="lead mb-4">Many product companies struggle with underperforming documentation and knowledge content. They know AI is changing the game — but they don’t know where to start.</p>
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
+                    <form id="my-form" action="https://formspree.io/f/xvgannrg" method="POST">
+                        <label>Email:</label>
+                        <input type="email" name="email" />
+                        <label>Message:</label>
+                        <input type="text" name="message" />
+                        <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="my-form-button">Submit</button>
+                        <p id="my-form-status"></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+    <script>
+            var form = document.getElementById("my-form");
+            
+            async function handleSubmit(event) {
+              event.preventDefault();
+              var status = document.getElementById("my-form-status");
+              var data = new FormData(event.target);
+              fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+              }).then(response => {
+                if (response.ok) {
+                  status.innerHTML = "Thanks for your submission!";
+                  form.reset()
+                } else {
+                  response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                      status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                      status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                  })
+                }
+              }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form"
+              });
+            }
+            form.addEventListener("submit", handleSubmit)
+    </script>
+</body>
+
+</html>
