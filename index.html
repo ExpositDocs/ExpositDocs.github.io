@@ -27,10 +27,20 @@
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             
                     <form id="my-form-2" action="https://formspree.io/f/xvgannrg" method="POST">
-                        <label>Email:</label>
+                        <!-- <label>Email:</label>
                         <input type="email" name="email" />
                         <label>Website:</label>
-                        <input type="text" name="message" />
+                        <input type="text" name="message" /> -->
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating" mb-3>
+                            <textarea name="message" class="form-control" placeholder~="" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Tell us a couple details about your product and your website address</label>
+                        </div>
+
                         <button id="my-form-button-2" class="btn btn-primary btn-lg px-4 gap-3">Contact</button>
                         <p id="my-form-status-2"></p>
                         <div id="form-2-spinner" style="display:none;" class="spinner-border" role="status">
